@@ -1,0 +1,83 @@
+$inbox-checkbox-size: 24px
+$inbox-checkbox-check-width: 14px
+$inbox-checkbox-check-height: 8px
+$inbox-checkbox-border-size: 2px
+$inbox-checkbox-primary-color: #555
+$inbox-checkbox-secondary-color: #fff
+
+$inbox-checkbox-guide-size: 48px
+$inbox-checkbox-guide-offset: ($inbox-checkbox-size - $inbox-checkbox-guide-size) / 2
+
+
+.inbox-checkbox
+  display: block
+  position: relative
+  cursor: pointer
+  overflow: visible
+
+  &:hover,
+  &:focus-within
+    &:after
+      content: ''
+      display: block
+      position: absolute
+      left: 50%
+      top: 50%
+      transform: translate3d(-50%, -50%, 0)
+      width: $inbox-checkbox-guide-size
+      height: $inbox-checkbox-guide-size
+      background: #999
+      border-radius: 50%
+      opacity: 0.2
+      z-index: 1
+
+  input[type="checkbox"]
+    position: absolute
+    left: -9999px
+
+  .checkbox-icon
+    display: block
+    position: relative
+    width: $inbox-checkbox-size
+    height: $inbox-checkbox-size
+    z-index: 10
+
+    &:before,
+    &:after
+      content: ''
+      display: block
+      position: absolute
+    &:before
+      border: $inbox-checkbox-border-size solid $inbox-checkbox-primary-color
+      background-color: $inbox-checkbox-secondary-color
+      width: 100%
+      height: 100%
+      top: 0
+      left: 0
+      z-index: 10
+      border-radius: 2px
+
+    &:after
+      width: $inbox-checkbox-check-width
+      height: $inbox-checkbox-check-height
+      border: 0 solid $inbox-checkbox-secondary-color
+      top: 50%
+      left: 50%
+      transform: translate3d(-50%, -50%, 0) rotate(-45deg)
+      z-index: 11
+
+  input[type="checkbox"]:checked + .checkbox-icon
+    &:before
+      background-color: $inbox-checkbox-primary-color
+    &:after
+      border-left-width: $inbox-checkbox-border-size
+      border-bottom-width: $inbox-checkbox-border-size
+
+
+  input[type="checkbox"]:indeterminate + .checkbox-icon
+    &:before
+      background-color: $inbox-checkbox-primary-color
+    &:after
+      height: 2px
+      background-color: $inbox-checkbox-secondary-color
+      transform: translate3d(-50%, -50%, 0)

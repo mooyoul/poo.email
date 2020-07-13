@@ -1,0 +1,155 @@
+$inbox-button-size: 24px
+$inbox-button-primary-color: #555
+$inbox-button-secondary-color: #fff
+$inbox-button-disabled-color: #aaa
+$inbox-button-guide-size: 48px
+
+
+.inbox-button
+  background: none transparent
+  border: 0 none
+  box-shadow: none
+  cursor: pointer
+  padding: 0
+  width: $inbox-button-size
+  height: $inbox-button-size
+  position: relative
+
+  &:hover,
+  &:focus
+    &:after
+      content: ''
+      display: block
+      position: absolute
+      left: 50%
+      top: 50%
+      transform: translate3d(-50%, -50%, 0)
+      width: $inbox-button-guide-size
+      height: $inbox-button-guide-size
+      background: #999
+      border-radius: 50%
+      opacity: 0.2
+      z-index: 1
+
+  &:disabled
+    cursor: not-allowed
+
+
+  .inbox-button-icon
+    width: $inbox-button-size
+    height: $inbox-button-size
+    position: relative
+
+    &,
+    &:before,
+    &:after
+      display: block
+
+    &:before,
+    &:after
+      content: ''
+      position: absolute
+
+  .inbox-button-icon.trashcan
+    width: 16px
+    height: 2px
+    top: -6px
+    left: 4px
+
+    &,
+    &:before,
+    &:after
+      background-color: $inbox-button-primary-color
+
+    &:before
+      width: 10px
+      height: 3px
+      top: -2px
+      left: 3px
+
+    &:after
+      width: 12px
+      height: 12px
+      left: 2px
+      top: 3px
+
+  &:disabled .inbox-button-icon.trashcan
+    &,
+    &:before,
+    &:after
+      background-color: $inbox-button-disabled-color
+
+  .inbox-button-icon.refresh
+    width: 16px
+    height: 16px
+    border-radius: 50%
+    border: 2px solid $inbox-button-primary-color
+    left: 4px
+    top: 0
+    &:before
+      width: 8px
+      height: 8px
+      background-color: $inbox-button-secondary-color
+      left: 8px
+      top: 2px
+      transform: rotate(45deg)
+      z-index: 4
+    &:after
+      width: 0
+      height: 0
+      border-right: 5px solid transparent
+      border-left: 5px solid transparent
+      border-top: 5px solid $inbox-button-primary-color
+      left: 7px
+      top: 1px
+      z-index: 5
+      transform: rotate(-45deg)
+
+  &:disabled .inbox-button-icon.refresh
+    &
+      border-color: $inbox-button-primary-color
+    &:after
+      border-top-color: $inbox-button-disabled-color
+
+  .inbox-button-icon.pause
+    width: 8px
+    height: 16px
+    left: 8px
+    top: 0
+    border-left: 2px solid $inbox-button-primary-color
+    border-right: 2px solid $inbox-button-primary-color
+
+  &:disabled .inbox-button-icon.pause
+    border-left-color: $inbox-button-primary-color
+    border-right-color: $inbox-button-primary-color
+
+  .inbox-button-icon.play
+    &:before
+      top: 4px
+      left: 7px
+      width: 0
+      height: 0
+      border-top: 8px solid transparent
+      border-bottom: 8px solid transparent
+      border-left: 12px solid $inbox-button-primary-color
+
+  &:disabled .inbox-button-icon.play
+    &:before
+      border-left-color: $inbox-button-disabled-color
+
+  .inbox-button-icon.back
+    top: 0
+    left: 2px
+    &:before
+      top: 50%
+      left: 50%
+      width: 12px
+      height: 12px
+      border-top: 2px solid $inbox-button-primary-color
+      border-left: 2px solid $inbox-button-primary-color
+      transform: translate3d(-50%, -50%, 0) rotate(-45deg)
+
+  &:disabled .inbox-button-icon.back
+    &:before
+      border-top-color: $inbox-button-disabled-color
+      border-left-color: $inbox-button-disabled-color

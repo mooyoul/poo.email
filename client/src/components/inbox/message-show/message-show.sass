@@ -1,0 +1,30 @@
+.message-show
+  display: flex
+  flex-direction: column
+  height: 100%
+  padding: 16px
+
+  .message-show-nav
+    display: flex
+    flex-direction: row
+    width: 100%
+    justify-content: space-between
+    margin-bottom: 32px
+    .inbox-button
+      margin-right: 20px
+      &:last-child
+        margin-right: 0
+
+  .message-show-header
+    padding: 12px 0
+    border-bottom: 1px solid #999
+    margin-bottom: 12px
+
+
+  .message-show-attachments-cells
+    display: flex
+    flex-direction: row
+
+  @media (min-width: 960px)
+    .message-show-nav
+      display: none

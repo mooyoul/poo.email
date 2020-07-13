@@ -1,0 +1,77 @@
+.split-view
+  display: flex
+  flex: 1
+  width: 100%
+  flex-direction: column
+  position: relative
+  overflow: hidden
+
+  .split-view-header
+    width: 100%
+
+  .split-view-panels
+    width: 100%
+    display: flex
+    flex: 1
+    flex-direction: row
+    overflow: hidden
+    .split-view-handle
+      display: none
+
+    .split-view-panel
+      background-color: #fff
+      overflow-x: hidden
+      overflow-y: scroll
+
+  @media (max-width: 959px)
+    .split-view-panels
+      .split-view-panel
+        &.is-primary
+          position: absolute
+          top: 0
+          left: 100%
+          width: 100%
+          height: 100%
+          transform: translate3d(0, 0, 0)
+          transition: transform ease 0.3s
+          z-index: 1001
+          &.is-active
+            transform: translate3d(-100%, 0, 0)
+
+  @media (min-width: 960px)
+    .split-view-panels
+      .split-view-panel
+        &.is-primary
+          flex: 1
+
+      .split-view-handle
+        display: flex
+        padding: 0 4px
+        cursor: col-resize
+        border-left: 2px solid #e0e0e0
+        border-right: 2px solid #e0e0e0
+        text-align: center
+        flex-direction: column
+        align-items: center
+        justify-content: center
+        .dots
+          position: relative
+          &,
+          &:before,
+          &:after
+            width: 4px
+            height: 4px
+            border-radius: 50%
+            background-color: #ccc
+
+          &:before,
+          &:after
+            content: ''
+            display: block
+            position: absolute
+            left: 0
+
+          &:before
+            top: -8px
+          &:after
+            top: 8px

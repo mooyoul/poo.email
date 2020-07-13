@@ -1,0 +1,30 @@
+name: client
+on: [push, pull_request]
+jobs:
+  job:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12'
+      - name: Prepare
+        working-directory: client
+        run: npm ci
+      - name: Build
+        working-directory: client
+        run: npm run build:prod
+#      - name: Deploy
+#        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+#        uses: mooyoul/cloudwatch-logs-actions@v1.1.5
+#        env:
+#          AWS_DEFAULT_REGION: us-east-1
+#          AWS_REGION: us-east-1
+#          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+#          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+#        with:
+#          group: poo-email
+#          stream: ${{ github.sha }}-infra
+#          retention: 30d
+#          run: npm run deploy:prod

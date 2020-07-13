@@ -1,0 +1,54 @@
+{
+  "name": "poo.email-infra",
+  "version": "1.0.0",
+  "description": "IaC source code for poo.email",
+  "dependencies": {
+    "@aws-cdk/aws-apigateway": "1.51.0",
+    "@aws-cdk/aws-apigatewayv2": "1.51.0",
+    "@aws-cdk/aws-certificatemanager": "1.51.0",
+    "@aws-cdk/aws-cloudfront": "1.51.0",
+    "@aws-cdk/aws-dynamodb": "1.51.0",
+    "@aws-cdk/aws-iam": "1.51.0",
+    "@aws-cdk/aws-lambda": "1.51.0",
+    "@aws-cdk/aws-route53": "1.51.0",
+    "@aws-cdk/aws-route53-targets": "1.51.0",
+    "@aws-cdk/aws-s3": "1.51.0",
+    "@aws-cdk/aws-s3-deployment": "1.51.0",
+    "@aws-cdk/aws-ses": "1.51.0",
+    "@aws-cdk/aws-ses-actions": "1.51.0",
+    "@aws-cdk/core": "1.51.0",
+    "aws-cdk-ses-domain-identity": "1.0.4"
+  },
+  "devDependencies": {
+    "@aws-cdk/assert": "1.51.0",
+    "@prescott/tslint-preset": "1.0.0",
+    "@types/jest": "26.0.3",
+    "@types/node": "12.12.47",
+    "aws-cdk": "1.51.0",
+    "jest": "26.1.0",
+    "ts-jest": "26.1.1",
+    "ts-node": "8.10.2",
+    "tslint": "6.1.2",
+    "typescript": "3.9.6"
+  },
+  "bin": {
+    "app": "bin/app.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "lint": "tslint -c tslint.json '{bin,lib,test}/**/*.ts'",
+    "test": "jest",
+    "cdk": "cdk"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mooyoul/poo.email.git"
+  },
+  "author": "MooYeol Prescott Lee <mooyoul@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mooyoul/poo.email/issues"
+  },
+  "homepage": "https://github.com/mooyoul/poo.email#readme"
+}

@@ -1,0 +1,49 @@
+.message-card
+  cursor: pointer
+  padding: 16px
+  display: flex
+  flex-direction: row
+  .message-card-addons
+    margin-right: 20px
+
+  .message-card-content
+    min-width: 0
+    width: 100%
+
+    > *
+      margin-bottom: 8px
+    > *:last-child
+      margin-bottom: 0
+
+    .message-card-header
+      display: flex
+      width: 100%
+      flex-direction: row
+      justify-content: space-between
+      align-items: center
+
+      .message-card-sender
+        flex: 1
+        white-space: nowrap
+        overflow: hidden
+        text-overflow: ellipsis
+        color: #555
+
+      .message-card-datetime
+        color: #999
+        margin-left: 8px
+
+    .message-card-subject
+      color: #333
+      margin-bottom: 4px
+
+    .message-card-summary
+      line-height: 20px
+      max-height: 60px
+      overflow: hidden
+      display: -webkit-box
+      -webkit-line-clamp: 3
+      -webkit-box-orient: vertical
+
+  &.is-selected
+    background-color: #f0f0f0

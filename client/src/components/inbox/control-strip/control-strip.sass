@@ -1,0 +1,25 @@
+.inbox-control-strip
+  display: flex
+  flex-direction: row
+  padding: 16px
+  border-top: 2px solid #e0e0e0
+  border-bottom: 2px solid #e0e0e0
+  .inbox-control-strip-left
+    margin-right: 28px
+
+  .inbox-control-strip-controls
+    display: flex
+    flex-direction: row
+    border-left: 2px solid #ccc
+    padding: 0 20px
+    .inbox-button
+      margin-right: 20px
+      &:last-child
+        margin-right: 0
+    p
+      display: none
+
+  @media (min-width: 640px)
+    .inbox-control-strip-controls
+      p
+        display: block
