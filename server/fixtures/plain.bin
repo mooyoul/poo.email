@@ -1,0 +1,60 @@
+Return-Path: <mooyoul@gmail.com>
+Received: from mail-lf1-f53.google.com (mail-lf1-f53.google.com [209.85.167.53])
+ by inbound-smtp.us-east-1.amazonaws.com with SMTP id uq0ai9dbnq8oighsammco2d7ea9to7bjiv054r01
+ for someone@poo.email;
+ Tue, 14 Jul 2020 18:46:05 +0000 (UTC)
+X-SES-Spam-Verdict: PASS
+X-SES-Virus-Verdict: PASS
+Received-SPF: pass (spfCheck: domain of _spf.google.com designates 209.85.167.53 as permitted sender) client-ip=209.85.167.53; envelope-from=mooyoul@gmail.com; helo=mail-lf1-f53.google.com;
+Authentication-Results: amazonses.com;
+ spf=pass (spfCheck: domain of _spf.google.com designates 209.85.167.53 as permitted sender) client-ip=209.85.167.53; envelope-from=mooyoul@gmail.com; helo=mail-lf1-f53.google.com;
+ dkim=pass header.i=@gmail.com;
+ dmarc=pass header.from=gmail.com;
+X-SES-RECEIPT: AEFBQUFBQUFBQUFFdFZhZHpVVjlTMGZzaXpXVVN1b3NZNmtFYy9mNkV0c2xTK1FWeU50T3NwbG81SUp1Y1p2S3dObGNlVHM3aTVSVURiRERKMTJCcVNaVHA1MEptVGJKUVhuaTJ2RVJNaFU0TytmZnZyLzR6ejB1dHpLa2pabjJ0NzBzSEdmejAwVWxhRTJSZytOTG1vbjFlQXVQeThXMmN1TXovWDNndWkvRDlFU0J1QUFIb3Npem1Ea3hEdlcwWDBnZ0VUTnFSSExoenFBdnlnWlVHZ1ptWkViekt4dXJ4TDlZY244YS9abFBkUVU1Njdzb3dxU1IzR0h6TGUvdG42cGFEWHdSNHpTc2RQemZ3NnVMRUFSR0RBcEd6WFhOOGRnZm5scU5DM3pJc1ZhZlNhUUNTY2c9PQ==
+X-SES-DKIM-SIGNATURE: a=rsa-sha256; q=dns/txt; b=FJpNpC4IXrhvWty2mJXIPyBWpY/BVnwELW9zFBX4C+uGc9IgVb55zyxWu/a71vnRskpMlX/alU3MC9+tYBN5/c+4tRrBMfcqwLy3+u3hMms8fFzConXFMo71ej+jhVN6Hu/3o9j8yoD+ZSozLu0jMfpcJ2GwvSfxqhznAzEu4FQ=; c=relaxed/simple; s=224i4yxa5dv7c2xz3womw6peuasteono; d=amazonses.com; t=1594752366; v=1; bh=xHPo/bQFjWW6edKJreS0KyPrV2+DOQoQPP2+CcfrPYg=; h=From:To:Cc:Bcc:Subject:Date:Message-ID:MIME-Version:Content-Type:X-SES-RECEIPT;
+Received: by mail-lf1-f53.google.com with SMTP id j21so80102lfe.6
+        for <someone@poo.email>; Tue, 14 Jul 2020 11:46:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:from:date:message-id:subject:to;
+        bh=xHPo/bQFjWW6edKJreS0KyPrV2+DOQoQPP2+CcfrPYg=;
+        b=tQzcDGJoXLSRsQJd6TnRwtvUa3eU0KwpHJ6dZtuiwlozEoYQTogDqgUmTUcTW46QTN
+         o0PUgWJ/lPqXuE8YCHQzWXPDaCBQnNSzstXQuqP4FkvGagNL6VTeLIBN97icRmdPUN+0
+         1Omn68xzfyAg3SnjDCCt4WEquuDT5Of3PebbUtjXS4BvcPY1bacX8LyQdFFdtfPTbc10
+         99rH3SLuOpLJm1wgHFzQqdsGitz6F94QzMEOyrpJVlwYFfThwV9D+6N/4laXusCqg5bb
+         CMbgLazY1TX8euS5fhhxSJEX+TZ9ZCZ+eIrRDLGiP7DWbyv2wa+TIv3I0gC1lu669N72
+         d4GQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:mime-version:from:date:message-id:subject:to;
+        bh=xHPo/bQFjWW6edKJreS0KyPrV2+DOQoQPP2+CcfrPYg=;
+        b=Tzsvm9aIB74q59mAYYhVQRk7pHk/t2pO92T9yuc8bMPx/+hVxV4bqPD5XmZomf/ki5
+         ETJImrhCV0EoSOXqvbIEffEPLsJL7xki9D6Q20RIXpnIj4g9tgHfBDA/BxPcP8vWFctG
+         Xm3XEDrgMlvrQudU/btn46UVOpyCc5SI/fw7o69eFRabd6I741mr16lyEmSEYa9t4q3b
+         lbFllbOfjYtSk+LHGVQXkY9KIsQvkEZFuyuDIXyjxUaIlvLtGaPvLyeTwEC8QcPmjK4i
+         g06eGX4E38nwrtXos2TayT/iGkIM4k3QcueGbdtSIUjXMuFQW9n+edUSX1BnuEd8wZCO
+         XZ7w==
+X-Gm-Message-State: AOAM531do/NVt0Vm0joCZP3i6DF3/SUGzA5IvGLmdfimeztwnIwcbFTv
+	v9AXpyH3EhRcBdlYTjewMzNyks8QSmTCkrEUOxEMinut
+X-Google-Smtp-Source: ABdhPJxOJA/YJcKv7Ews4snbS1Rq/AC6Gg79Jq2z9PvCqOwpIag1fHdDvsq0QqLrsayU9k7/t0JRQxaK6KUyysgaSUo=
+X-Received: by 2002:a19:c64e:: with SMTP id w75mr2826897lff.64.1594752363666;
+ Tue, 14 Jul 2020 11:46:03 -0700 (PDT)
+MIME-Version: 1.0
+From: MooYoul Lee <mooyoul@gmail.com>
+Date: Wed, 15 Jul 2020 03:45:52 +0900
+Message-ID: <CAN_HVM052EhQx8US4D1Uc86FVeETPk_8W_s9iOd77t-BKrRXyw@mail.gmail.com>
+Subject: Hello World
+To: someone@poo.email
+Content-Type: multipart/alternative; boundary="00000000000024232605aa6b38a6"
+
+--00000000000024232605aa6b38a6
+Content-Type: text/plain; charset="UTF-8"
+
+Content goes here
+
+--00000000000024232605aa6b38a6
+Content-Type: text/html; charset="UTF-8"
+
+<div dir="ltr">Content goes here</div>
+
+--00000000000024232605aa6b38a6--
