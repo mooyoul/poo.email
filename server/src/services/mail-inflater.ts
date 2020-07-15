@@ -3,6 +3,7 @@ import { AttachmentCommon, AttachmentStream, MessageText } from "mailparser";
 import * as path from "path";
 import * as stream from "stream";
 
+import { MeasureStream } from "./measure-stream";
 import { Metadata, Storage } from "./storage";
 
 export type InflatedMail = {
@@ -77,10 +78,12 @@ export class MailInflater extends stream.Transform {
   private async consumeAttachment(data: AttachmentStream) {
     const id = data.cid || Math.random().toString(36).slice(2, 10);
 
+    const measureStream = new MeasureStream();
+
     try {
       const res = await this.storage.write({
         key: path.join(this.prefix, id),
-        body: data.content as stream.Readable,
+        body: (data.content as stream.Readable).pipe(measureStream),
         metadata: {
           contentType: data.contentType,
           ...this.metadataFactory(),
@@ -88,6 +91,7 @@ export class MailInflater extends stream.Transform {
       });
 
       (data as any as AttachmentObject).content = res.key;
+      data.size = measureStream.size;
       this.attachments.push(data as any as AttachmentObject);
     } finally {
       data.release();
