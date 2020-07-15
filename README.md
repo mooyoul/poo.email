@@ -1,9 +1,6 @@
 # poo.email
 
-[![Build Status](https://github.com/mooyoul/refined-unipass/workflows/workflow/badge.svg)](https://github.com/mooyoul/refined-unipass/actions)
-[![Infra Status](https://github.com/mooyoul/refined-unipass/workflows/infra/badge.svg)](https://github.com/mooyoul/refined-unipass/actions)
-[![Github Pages Status](https://github.com/mooyoul/refined-unipass/workflows/gh-pages/badge.svg)](https://github.com/mooyoul/refined-unipass/actions)
-[![Semantic Release enabled](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
+[![Build Status](https://github.com/mooyoul/poo.email/workflows/workflow/badge.svg)](https://github.com/mooyoul/poo.email/actions)
 [![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://renovatebot.com/)
 [![MIT license](http://img.shields.io/badge/license-MIT-blue.svg)](http://mooyoul.mit-license.org/)
 
@@ -34,6 +31,12 @@ https://poo.email/
 - [Server](server) - All things about Server Application,, which is Lambda handlers and contains business logic
 - [Infra](infra) - All things about IaC  
 
+
+## API Documentation
+
+OpenAPI based Documentation is available:
+
+http://petstore.swagger.io/?url=https%3A%2F%2Fapi.poo.email%2Fapi%2Fdocs
 
 ## Dirty Sketches
 
