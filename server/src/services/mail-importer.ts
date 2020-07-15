@@ -129,7 +129,7 @@ export class MailImporter {
     });
 
     // Inflate mail contents
-    await BbPromise.fromCallback<ParsedMail>((cb) =>
+    await BbPromise.fromCallback<void>((cb) =>
       stream.pipeline(
         this.storage.readAsStream(source),
         parser,
