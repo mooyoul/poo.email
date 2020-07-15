@@ -16,12 +16,6 @@ jobs:
       - name: "[Client] Build"
         working-directory: client
         run: npm run build:prod
-      - name: "[Client] Prepare"
-        working-directory: client
-        run: npm ci
-      - name: "[Client] Build"
-        working-directory: client
-        run: npm run build:prod
       # Server
       - name: "[Server] Prepare"
         working-directory: server
