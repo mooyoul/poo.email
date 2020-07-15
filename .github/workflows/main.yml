@@ -4,6 +4,13 @@ jobs:
   job:
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    services:
+      dynamodb:
+        image: amazon/dynamodb-local
+        # @note Github overwrites WORKDIR to repository path, so overwrite that again
+        options: >-
+          --workdir /home/dynamodblocal
+          --health-cmd "curl --fail http://127.0.0.1:8000/shell/ || exit 1" --health-interval 10s --health-timeout 5s --health-retries 5
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
@@ -26,6 +33,8 @@ jobs:
       - name: "[Server] Test"
         working-directory: server
         run: npm test
+        env:
+          DYNAMO_TYPES_ENDPOINT: http://dynamodb:8000
       - name: "[Server] Build"
         working-directory: server
         run: npm run build
