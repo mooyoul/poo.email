@@ -1,5 +1,5 @@
 name: workflow
-on: [push, pull_request)
+on: [push, pull_request]
 jobs:
   job:
     runs-on: ubuntu-latest
@@ -10,45 +10,45 @@ jobs:
         with:
           node-version: '12'
       # Client
-      - name: (Client) Prepare
+      - name: "[Client] Prepare"
         working-directory: client
         run: npm ci
-      - name: (Client) Build
+      - name: "[Client] Build"
         working-directory: client
         run: npm run build:prod
-      - name: Client Prepare
+      - name: "[Client] Prepare"
         working-directory: client
         run: npm ci
-      - name: (Client) Build
+      - name: "[Client] Build"
         working-directory: client
         run: npm run build:prod
       # Server
-      - name: (Server) Prepare
+      - name: "[Server] Prepare"
         working-directory: server
         run: npm ci
-      - name: (Server) Lint
+      - name: "[Server] Lint"
         working-directory: server
         run: npm run lint
-      - name: (Server) Test
+      - name: "[Server] Test"
         working-directory: server
         run: npm test
-      - name: (Server) Build
+      - name: "[Server] Build"
         working-directory: server
         run: npm run build
-      - name: (Server) Packaging
+      - name: "[Server] Packaging"
         working-directory: server
         run: npm run pack
       # Infra
-#      - name: (Infra) Prepare
+#      - name: "[Infra] Prepare"
 #        working-directory: infra
 #        run: npm ci
-#      - name: (Infra) Lint
+#      - name: "[Infra] Lint"
 #        working-directory: infra
 #        run: npm run lint
-#      - name: (Infra) Test
+#      - name: "[Infra] Test"
 #        working-directory: infra
 #        run: npm test
-#      - name: (Infra) Deploy Client
+#      - name: "[Infra] Deploy Client"
 #        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
 #        uses: mooyoul/cloudwatch-logs-actions@v1.1.5
 #        env:
