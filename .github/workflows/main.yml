@@ -7,6 +7,8 @@ jobs:
     services:
       dynamodb:
         image: amazon/dynamodb-local
+        ports:
+          - 8000:8000
         # @note Github overwrites WORKDIR to repository path, so overwrite that again
         options: >-
           --workdir /home/dynamodblocal
@@ -34,7 +36,7 @@ jobs:
         working-directory: server
         run: npm test
         env:
-          DYNAMO_TYPES_ENDPOINT: http://dynamodb:8000
+          DYNAMO_TYPES_ENDPOINT: http://127.0.0.1:8000
       - name: "[Server] Build"
         working-directory: server
         run: npm run build
