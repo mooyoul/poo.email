@@ -17,9 +17,13 @@ export class CORSMiddleware implements Middleware<never> {
 
   public async before(options: MiddlewareBeforeOptions<never>): Promise<Response | void> {
     const ctx = options.routingContext;
+    const currentRoute = options.currentRoute;
     const { headers } = ctx;
 
-    if (headers.origin && !this.isAllowedOrigin(headers.origin)) {
+    // dumb method to know whether given route is OpenAPIRoute or not
+    const isOpenAPIRoute = /openapi/i.test(currentRoute.operationId);
+
+    if (!isOpenAPIRoute && !this.isAllowedOrigin(headers.origin)) {
       return ctx.json({
         error: {
           code: "FORBIDDEN",
@@ -63,7 +67,11 @@ export class CORSMiddleware implements Middleware<never> {
     return response;
   }
 
-  private isAllowedOrigin(origin: string): boolean {
+  private isAllowedOrigin(origin?: string): boolean {
+    if (!origin) {
+      return true;
+    }
+
     for (const allowedOrigin of this.allowedOrigins) {
       const matched = allowedOrigin.includes("*")
         ? nanomatch.contains(origin, allowedOrigin)
