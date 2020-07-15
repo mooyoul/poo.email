@@ -3,18 +3,15 @@ import { Middleware, MiddlewareAfterOptions, MiddlewareBeforeOptions, Response }
 
 export type CORSMiddlewareOptions = {
   readonly allowedOrigins: string[];
-  readonly allowedHeaders?: string[];
   readonly maxAge?: number;
 };
 
 export class CORSMiddleware implements Middleware<never> {
   private readonly allowedOrigins: Set<string>;
-  private readonly allowedHeaders: Set<string>;
   private readonly maxAge: number;
 
   public constructor(options: CORSMiddlewareOptions) {
     this.allowedOrigins = new Set<string>(options.allowedOrigins);
-    this.allowedHeaders = new Set<string>(options.allowedHeaders ?? []);
     this.maxAge = options.maxAge ?? 300;
   }
 
@@ -46,12 +43,12 @@ export class CORSMiddleware implements Middleware<never> {
         "Access-Control-Max-Age": Math.floor(this.maxAge / 1000).toString(),
       };
 
-      if (this.allowedHeaders.size > 0) {
-        corsHeaders["Access-Control-Allow-Headers"] = [...this.allowedHeaders].join(", ");
-      }
-
       if (requestedMethod) {
         corsHeaders['Access-Control-Allow-Methods'] = requestedMethod;
+      }
+
+      if (requestedHeaders) {
+        corsHeaders["Access-Control-Allow-Headers"] = requestedHeaders;
       }
 
       return {
