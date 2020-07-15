@@ -9,7 +9,6 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '12'
-      # Client
       - name: [Client] Prepare
         working-directory: client
         run: npm ci
@@ -22,7 +21,6 @@ jobs:
       - name: [Client] Build
         working-directory: client
         run: npm run build:prod
-      # Server
       - name: [Server] Prepare
         working-directory: server
         run: npm ci
@@ -38,7 +36,6 @@ jobs:
       - name: [Server] Packaging
         working-directory: server
         run: npm run pack
-      # Infra
 #      - name: [Infra] Prepare
 #        working-directory: infra
 #        run: npm ci
