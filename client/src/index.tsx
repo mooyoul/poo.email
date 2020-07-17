@@ -11,8 +11,13 @@ import './index.sass';
 
 import { Home } from './components/home';
 import { Inbox } from './components/inbox';
+import { useTracking } from './components/use-tracking';
 
 function App() {
+  useTracking({
+    gaMeasurementId: process.env.GA_MEASUREMENT_ID,
+  });
+
   return (
     <HashRouter>
       <Switch>

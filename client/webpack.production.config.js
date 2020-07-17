@@ -90,9 +90,10 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('development'),
+      'process.env.NODE_ENV': JSON.stringify('production'),
       'process.env.API_BASE_URL': JSON.stringify('https://api.poo.email/api'),
       'process.env.EVENT_GATEWAY_ENDPOINT': JSON.stringify('wss://events.poo.email/prod'),
+      'process.env.GA_MEASUREMENT_ID': JSON.stringify('UA-172919993-1'),
     }),
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
