@@ -38,6 +38,10 @@ OpenAPI based Documentation is available:
 
 http://petstore.swagger.io/?url=https%3A%2F%2Fapi.poo.email%2Fapi%2Fdocs
 
+## Deployment Guide
+
+See [infra/README.md](infra/README.md)
+
 ## Infrastructure Diagrams
 
 #### Server
