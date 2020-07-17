@@ -25,12 +25,11 @@ https://poo.email/
 - Real-time updates via WebSockets 
 
 
-## Project Structures
+## Project Structure
 
 - [Client](client) - All things about Client Application, which is React App currently
 - [Server](server) - All things about Server Application, which are Lambda handlers and contain business logic.
-- [Infra](infra) - All things about IaC  
-
+- [Infra](infra) - All things about IaC
 
 ## API Documentation
 
