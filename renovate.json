@@ -1,0 +1,6 @@
+{
+  "extends": [
+    "@prescott",
+    "@prescott:nodejs12"
+  ]
+}
