@@ -15,7 +15,7 @@ export interface EmailProcessingServiceProps {
     readonly subscription: EventGatewaySubscription;
   };
   readonly ses: {
-    readonly bucket: s3.IBucket;
+    readonly bucket: s3.Bucket;
     readonly prefix: string;
   };
   readonly cdn: {
@@ -33,6 +33,15 @@ export class EmailProcessingService extends cdk.Construct {
     const { stage, ses, cdn, event } = props;
 
     const tableName = `poo-email-${stage}-emails`;
+    const archivedEmailPrefix = "emails/archived/";
+
+    ses.bucket.addLifecycleRule({
+      id: "delete-old-archived-mail",
+      enabled: true,
+      prefix: archivedEmailPrefix,
+      abortIncompleteMultipartUploadAfter: cdk.Duration.days(1),
+      expiration: cdk.Duration.days(3),
+    });
 
     // Create a DynamoDB Table for saving inbound email record
     this.table = new ddb.Table(this, "Table", {
@@ -58,7 +67,7 @@ export class EmailProcessingService extends cdk.Construct {
       timeout: cdk.Duration.seconds(30),
       environment: {
         INBOUND_EMAIL_PREFIX: ses.prefix,
-        ARCHIVED_EMAIL_PREFIX: "emails/archived/",
+        ARCHIVED_EMAIL_PREFIX: archivedEmailPrefix,
         CDN_BASE_URL: cdn.baseUrl,
         EMAIL_BUCKET_NAME: ses.bucket.bucketName,
         EMAIL_TABLE_NAME: this.table.tableName,

@@ -10,7 +10,7 @@ import { DnsValidatedDomainIdentity } from "aws-cdk-ses-domain-identity";
 export interface EmailInboundServiceProps {
   readonly domainName: string;
   readonly hostedZone: route53.IHostedZone;
-  readonly bucket: s3.Bucket;
+  readonly bucket: s3.IBucket;
   readonly handler: lambda.IFunction;
   readonly prefix: string;
   readonly receiptRuleSet: string;
@@ -41,14 +41,6 @@ export class EmailInboundService extends cdk.Construct {
       hostedZone: this.hostedZone,
       region: this.region,
       dkim: true,
-    });
-
-    bucket.addLifecycleRule({
-      id: "delete-old-archived-mail",
-      enabled: true,
-      prefix: this.prefix,
-      abortIncompleteMultipartUploadAfter: cdk.Duration.days(1),
-      expiration: cdk.Duration.days(3),
     });
 
     // Create SES Receipt Rule
