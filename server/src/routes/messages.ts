@@ -25,7 +25,9 @@ export default new Namespace('/messages', {
 
       const inbox = Inbox.of(recipient);
 
-      await inbox.batchDelete(messageIds);
+      if (recipient !== "example@poo.email") {
+        await inbox.batchDelete(messageIds);
+      }
 
       await pushService.broadcast(recipient, {
         topic: recipient,

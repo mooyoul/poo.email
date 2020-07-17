@@ -19,6 +19,10 @@ https://poo.email/
 
 or Send a mail to [example@poo.email](mailto:example@poo.email), then Navigate to [Inbox of example@poo.email](https://poo.email/#/inbox/example)!
 
+> NOTE: Inbox of `example@poo.email` is read-only.
+> 
+> Received mail will be deleted after 24 hours like any other inboxes, but you won't be able to delete mail in this inbox manually.
+
 ## Key Features
 
 - Receive email
