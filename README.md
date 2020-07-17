@@ -28,7 +28,7 @@ https://poo.email/
 ## Project Structures
 
 - [Client](client) - All things about Client Application, which is React App currently
-- [Server](server) - All things about Server Application,, which is Lambda handlers and contains business logic
+- [Server](server) - All things about Server Application, which are Lambda handlers and contain business logic.
 - [Infra](infra) - All things about IaC  
 
 
