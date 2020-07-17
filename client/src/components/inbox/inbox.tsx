@@ -7,6 +7,7 @@ import { useSocket } from '../use-socket';
 import { InboxControlStrip } from './control-strip';
 import { EmptyInbox } from './empty-inbox';
 import { InboxHeader } from './header';
+import { LoadingIndicatorBar } from './loading-indicator-bar';
 import { MessageCard } from './message-card';
 import { MessageShow } from './message-show';
 import { Navbar } from './navbar';
@@ -242,7 +243,7 @@ export function Inbox() {
         left={(
           <>
             {isFetching && (
-              <div>Fetching...</div>
+              <LoadingIndicatorBar />
             )}
             {error && (
               // eslint-disable-next-line react/jsx-one-expression-per-line
