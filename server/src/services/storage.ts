@@ -6,7 +6,6 @@ import { Readable as ReadableStream } from "stream";
 
 export interface Metadata {
   contentType?: string;
-  expiresAt?: Date;
   cacheControl?: string;
   acl?: S3.ObjectCannedACL;
 }
@@ -56,7 +55,6 @@ export class Storage {
       Key: key,
       Body: params.body,
       ACL: params.metadata?.acl,
-      Expires: params.metadata?.expiresAt,
       ContentType: contentType,
       CacheControl: params.metadata?.cacheControl,
     }).promise();

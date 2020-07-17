@@ -13,12 +13,6 @@ describe(MailImporter.name, () => {
         bucket: "fake",
         key: "fake",
       });
-      const timer = sandbox.useFakeTimers({
-        now: 1563094800000,
-        toFake: ["Date"],
-      });
-      const expiresAt = new Date(timer.now + 1209600000);
-
       const importer = new MailImporter({
         storage: { write: writeFake, readAsStream: readAsStreamFake } as any,
         expiresInDays: 14,
@@ -60,7 +54,6 @@ describe(MailImporter.name, () => {
           contentType: "text/plain; charset=utf-8",
           acl: "public-read",
           cacheControl: "public, max-age=1209600",
-          expiresAt,
         },
       }]);
       expect(writeFake.secondCall.args).toEqual([{
@@ -70,7 +63,6 @@ describe(MailImporter.name, () => {
           contentType: "text/html; charset=utf-8",
           acl: "public-read",
           cacheControl: "public, max-age=1209600",
-          expiresAt,
         },
       }]);
       expect(writeFake.thirdCall.args).toEqual([{
@@ -80,7 +72,6 @@ describe(MailImporter.name, () => {
           contentType: "text/html; charset=utf-8",
           acl: "public-read",
           cacheControl: "public, max-age=1209600",
-          expiresAt,
         },
       }]);
     });

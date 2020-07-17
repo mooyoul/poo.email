@@ -86,22 +86,6 @@ describe(Storage.name, () => {
       });
     });
 
-    it("should set Expires if provided", async () => {
-      const expiresAt = new Date(1594598400000);
-
-      await storage.write({
-        key: "key",
-        body: Buffer.from([1, 2, 3]),
-        metadata: {
-          expiresAt,
-        },
-      });
-
-      expect(uploadFake.firstCall.args[0]).toMatchObject({
-        Expires: expiresAt,
-      });
-    });
-
     it("should set Content-Type if provided", async () => {
       const contentType = "text/plain; charset=utf-8";
 

@@ -71,7 +71,6 @@ export class MailImporter {
           contentType,
           acl: "public-read",
           cacheControl: `public, max-age=${moment.duration(this.expiresInDays, "day").asSeconds()}`,
-          expiresAt: moment(new Date()).add(this.expiresInDays, "day").toDate(),
         },
       });
 
@@ -123,8 +122,6 @@ export class MailImporter {
       prefix: destination,
       metadataFactory: () => ({
         acl: "public-read",
-        cacheControl: `public, max-age=${moment.duration(this.expiresInDays, "day").asSeconds()}`,
-        expiresAt: moment(new Date()).add(this.expiresInDays, "day").toDate(),
       }),
     });
 
