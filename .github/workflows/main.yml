@@ -44,29 +44,29 @@ jobs:
         working-directory: server
         run: npm run pack
       # Infra
-#      - name: "[Infra] Prepare"
-#        working-directory: infra
-#        run: npm ci
-#      - name: "[Infra] Lint"
-#        working-directory: infra
-#        run: npm run lint
-#      - name: "[Infra] Test"
-#        working-directory: infra
-#        run: npm test
-#      - name: "[Infra] Deploy Client"
-#        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-#        uses: mooyoul/cloudwatch-logs-actions@v1.1.5
-#        env:
-#          AWS_DEFAULT_REGION: us-east-1
-#          AWS_REGION: us-east-1
-#          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-#          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-#          CDK_DEFAULT_ACCOUNT: ${{ secrets.CDK_DEFAULT_ACCOUNT }}
-#        with:
-#          group: poo-email
-#          stream: ${{ github.sha }}-infra
-#          retention: 30d
-#          run: |
-#            cd $GITHUB_WORKSPACE/infra
-#            npm ci
-#            npm run cdk -- deploy PooEmailServer PooEmailClient --ci --require-approval never
+      - name: "[Infra] Prepare"
+        working-directory: infra
+        run: npm ci
+      - name: "[Infra] Lint"
+        working-directory: infra
+        run: npm run lint
+      - name: "[Infra] Test"
+        working-directory: infra
+        run: npm test
+      - name: "[Infra] Deploy"
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        uses: mooyoul/cloudwatch-logs-actions@v1.1.5
+        env:
+          AWS_DEFAULT_REGION: us-east-1
+          AWS_REGION: us-east-1
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          CDK_DEFAULT_ACCOUNT: ${{ secrets.CDK_DEFAULT_ACCOUNT }}
+        with:
+          group: poo-email
+          stream: ${{ github.sha }}-infra
+          retention: 30d
+          run: |
+            cd $GITHUB_WORKSPACE/infra
+            npm ci
+            npm run cdk -- deploy PooEmailServer PooEmailClient --ci --require-approval never
