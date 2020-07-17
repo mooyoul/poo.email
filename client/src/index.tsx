@@ -19,20 +19,22 @@ function App() {
   });
 
   return (
-    <HashRouter>
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/inbox/:username">
-          <Inbox />
-        </Route>
-        <Route path="*">
-          <Redirect to={{ pathname: '/' }} />
-        </Route>
-      </Switch>
-    </HashRouter>
+    <Switch>
+      <Route exact path="/">
+        <Home />
+      </Route>
+      <Route path="/inbox/:username">
+        <Inbox />
+      </Route>
+      <Route path="*">
+        <Redirect to={{ pathname: '/' }} />
+      </Route>
+    </Switch>
   );
 }
 
-ReactDOM.render((<App />), document.getElementById('app'));
+ReactDOM.render((
+  <HashRouter>
+    <App />
+  </HashRouter>
+), document.getElementById('app'));
