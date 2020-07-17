@@ -83,6 +83,23 @@ export class ClientStack extends cdk.Stack {
             },
           },
           compress: true,
+          defaultTtl: cdk.Duration.days(0), // No cache
+          minTtl: cdk.Duration.days(0), // No cache
+          maxTtl: cdk.Duration.days(0), // No cache
+        }, {
+          pathPattern: "/static/",
+          allowedMethods: cf.CloudFrontAllowedMethods.GET_HEAD_OPTIONS,
+          cachedMethods: cf.CloudFrontAllowedCachedMethods.GET_HEAD_OPTIONS,
+          forwardedValues: {
+            headers: [
+              "Origin",
+            ],
+            queryString: false,
+            cookies: {
+              forward: "none",
+            },
+          },
+          compress: true,
           defaultTtl: cdk.Duration.days(365 * 100), // 100 years
           minTtl: cdk.Duration.days(365 * 100), // 100 years
           maxTtl: cdk.Duration.days(365 * 100), // 100 years

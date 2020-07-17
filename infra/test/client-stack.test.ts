@@ -40,10 +40,26 @@ describe(ClientStack.name, () => {
             QueryString: false,
           },
           ViewerProtocolPolicy: "redirect-to-https",
+          DefaultTTL: 0,
+          MinTTL: 0,
+          MaxTTL: 0,
+        },
+        CacheBehaviors: [{
+          PathPattern: "/static/",
+          TargetOriginId: "origin1",
+          AllowedMethods: ["GET", "HEAD", "OPTIONS"],
+          ForwardedValues: {
+            Cookies: {
+              Forward: "none",
+            },
+            Headers: ["Origin"],
+            QueryString: false,
+          },
+          ViewerProtocolPolicy: "redirect-to-https",
           DefaultTTL: 3153600000,
           MinTTL: 3153600000,
           MaxTTL: 3153600000,
-        },
+        }],
         Origins: [{
           S3OriginConfig: {},
         }],
