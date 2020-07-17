@@ -21,7 +21,7 @@ or Send a mail to [example@poo.email](mailto:example@poo.email), then Navigate t
 
 > NOTE: Inbox of `example@poo.email` is read-only.
 > 
-> Received mail will be deleted after 24 hours like any other inboxes, but you won't be able to delete mail in this inbox manually.
+> Received mail will be deleted after 24 hours like any other inboxes, but you won't be able to manually delete mail by clicking "Delete Mail" button.
 
 ## Key Features
 
