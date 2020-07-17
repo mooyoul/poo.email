@@ -45,7 +45,7 @@
     "postbuild": "cd src && find . -name '*.json' -type f -exec cp {} ../dst/{} \\; && cd ..",
     "prepack": "rm -f dist.zip",
     "pack": "cp package.json package-lock.json dist/ && cd dist && npm ci --production && zip -qry ../dist.zip . && cd ..",
-    "test": "env AWS_REGION=us-east-1 AWS_ACCESS_KEY_ID=mock AWS_SECRET_ACCESS_KEY=mock EMAIL_TABLE_NAME=inbox SUBSCRIPTION_TABLE_NAME=subscriptions CDN_BASE_URL=https://a.example.com jest",
+    "test": "env AWS_REGION=us-east-1 AWS_ACCESS_KEY_ID=mock AWS_SECRET_ACCESS_KEY=mock EMAIL_TABLE_NAME=inbox SUBSCRIPTION_TABLE_NAME=subscriptions CDN_BASE_URL=https://a.example.com INBOUND_EMAIL_PREFIX=raw ARCHIVED_EMAIL_PREFIX=archived jest",
     "test:local": "env DYNAMO_TYPES_ENDPOINT=http://127.0.0.1:8000 npm test",
     "lint": "tslint -c tslint.json 'src/**/*.ts'"
   },
