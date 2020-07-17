@@ -70,7 +70,6 @@ See [infra/README.md](infra/README.md)
 ## Related
 
 - [aws-cdk-ses-domain-identity](https://github.com/mooyoul/aws-cdk-ses-domain-identity) - Constructs for provisioning and referencing domain identities which can be used in SES RuleSets and Actions Construct.
-                                                                                        
 
 
 ## License
