@@ -38,6 +38,16 @@ OpenAPI based Documentation is available:
 
 http://petstore.swagger.io/?url=https%3A%2F%2Fapi.poo.email%2Fapi%2Fdocs
 
+## Infrastructure Diagrams
+
+#### Server
+
+![Server Infrastructure Diagram](assets/infra-server.png)
+
+#### Client
+
+![Client Infrastructure Diagram](assets/infra-client.png)
+
 ## Dirty Sketches
 
 ![System Design](assets/system-design.png)
