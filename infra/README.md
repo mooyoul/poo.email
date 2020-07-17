@@ -6,8 +6,8 @@ This directory contains IaC (Infrastructure as a Code) code of [poo.email](https
 
 Make sure you've configured your own AWS credentials locally.
 
-Since SES only one active single Rule Set, You'll have to create your own SES RuleSet manually in the AWS Console
-and activate created SES RuleSet.
+Since only one active Rule Set can be used in SES, You'll have to create your own SES RuleSet manually in the AWS Console
+and activate created SES RuleSet. Then, Supply created SES RuleSet to [bin/app.ts](bin/app.ts)  
 
 Also, You'll have to create Route53 Hosted Zone. If you need to provision Route53 Route zone,
 You can provision your own Hosted Zone using `BaseStack`:
@@ -45,7 +45,7 @@ $ npm run cdk -- deploy PooEmailClient
 
 ## Deploying Server
 
-Before deploy server, Make sure Server application has been packaged.
+Before deploying server, Make sure Server application has been packaged.
 
 ```
 $ npm run cdk -- deploy PooEmailServer
