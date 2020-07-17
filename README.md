@@ -17,6 +17,8 @@ All received emails will be deleted automatically after 24 hours.
 
 https://poo.email/
 
+or Send a mail to [example@poo.email](mailto:example@poo.email), then Navigate to [Inbox of example@poo.email](https://poo.email/#/inbox/example)!
+
 ## Key Features
 
 - Receive email
