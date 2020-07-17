@@ -18,9 +18,16 @@ export default new Namespace('/inbox', {
       const after = this.params.after as string | undefined;
       const count = this.params.count as number;
 
-      const res = await Inbox.of(recipient).list(count, after);
+      const inbox = Inbox.of(recipient);
 
-      return res;
+      if (inbox.reserved) {
+        return {
+          data: [],
+          paging: {},
+        };
+      }
+
+      return await inbox.list(count, after);
     }),
   ],
 });
