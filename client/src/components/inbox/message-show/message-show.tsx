@@ -112,9 +112,9 @@ export function MessageShow(props: MessageShowProps) {
               ? `${attachments.length} attachment`
               : `${attachments.length} attachments`}
           </h5>
-          <div className="columns is-multiline">
+          <div className="message-show-attachments-track">
             { attachments.map((attachment: any) => (
-              <div className="column is-half-mobile is-one-quarter-desktop" key={attachment.cid}>
+              <div className="message-show-attachments-item" key={attachment.cid}>
                 <AttachmentCell attachment={attachment} />
               </div>
             )) }
