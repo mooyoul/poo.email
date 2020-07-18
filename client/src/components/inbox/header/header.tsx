@@ -22,12 +22,12 @@ export function InboxHeader(props: InboxHeaderProps) {
   };
 
   return (
-    <div className="columns is-vcentered is-multiline px-3">
-      <div className="column is-auto">
+    <div className="inbox-header">
+      <div className="inbox-header-left">
         {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
-        <h2 className="subtitle">Inbox of <span className="code">{recipient}</span></h2>
+        <h2 className="subtitle">Inbox of <code>{recipient}</code></h2>
       </div>
-      <div className="column is-one-third-tablet is-one-quarter-desktop">
+      <div className="inbox-header-right">
         <form onSubmit={onSubmit}>
           <div className="field has-addons">
             <div className="control is-expanded">

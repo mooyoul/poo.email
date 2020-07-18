@@ -1,0 +1,24 @@
+.inbox-header
+  display: flex
+  width: 100%
+  flex-direction: row
+  flex-wrap: wrap
+  align-items: center
+  padding: 16px
+
+  .inbox-header-left
+    width: 100%
+  .inbox-header-right
+    width: 100%
+    margin-top: 12px
+
+  @media (min-width: 768px)
+    flex-wrap: nowrap
+
+    .inbox-header-left
+      width: auto
+      flex: 1
+
+    .inbox-header-right
+      width: 360px
+      margin-top: 0
