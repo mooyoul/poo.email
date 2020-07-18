@@ -186,7 +186,7 @@ describe(MailImporter.name, () => {
       });
     });
 
-    describe.only("complex", () => {
+    describe("complex", () => {
       it("should sanitize content and import mail", async () => {
         const bitlyInterceptor = nock("https://bit.ly");
 
