@@ -1,0 +1,73 @@
+Return-Path: <mooyoul@gmail.com>
+Received: from mail-lf1-f66.google.com (mail-lf1-f66.google.com [209.85.167.66])
+ by inbound-smtp.us-east-1.amazonaws.com with SMTP id k5ejua0bf5kgsmtlvvv7mm5u9qnu034ojq900fg1
+ for someone@poo.email;
+ Sat, 18 Jul 2020 19:20:42 +0000 (UTC)
+X-SES-Spam-Verdict: PASS
+X-SES-Virus-Verdict: PASS
+Received-SPF: pass (spfCheck: domain of _spf.google.com designates 209.85.167.66 as permitted sender) client-ip=209.85.167.66; envelope-from=mooyoul@gmail.com; helo=mail-lf1-f66.google.com;
+Authentication-Results: amazonses.com;
+ spf=pass (spfCheck: domain of _spf.google.com designates 209.85.167.66 as permitted sender) client-ip=209.85.167.66; envelope-from=mooyoul@gmail.com; helo=mail-lf1-f66.google.com;
+ dkim=pass header.i=@gmail.com;
+ dmarc=pass header.from=gmail.com;
+X-SES-RECEIPT: AEFBQUFBQUFBQUFIbmdvRStCUjZnMnVLOWZEb1hyczZnY0V6amU5OVIrZDBONnQ1MHVaSmpwaFJnS09NZ0VoQ0RYMjY5b3dqRmI3L3F5NE1iZE9GaHdMd2d0S0JKMFVtR0VXbEZSOTMrY0NzL2YzajhJOGRReFZUNUp3SWFXNjFCaHBsazBhZlgvZnNyWGNaUGlSTWdwdGFaeUdMcnkrd21kRW8xSHNxNTNmeWZvVVdJdk1TM2N2RGhDdWhlaklCajVWbTNERDVRY3FVMnBQQkhFTXNRa29NbVJrcXM5b2xXY21SQXRMaTFoY1lkVEExczFRdGpLczJqdnI3M3Mwb0pBSk9iRzhaUmpZMSt2NzBRTmhWZlI5SHNNVklPaDhmWWQzMW4vSTNIOUZ2ajIvUzJGcFNkM1E9PQ==
+X-SES-DKIM-SIGNATURE: a=rsa-sha256; q=dns/txt; b=Z68WrJmiQcGJIsOz977AIjWYEXRbyn0yPaclLiXFT+4VKSMz2IX6QKBV2jPIAiIVddGknjamwU/1UBHARIgaOr/t0cmebGpRcW1dld9FoE2Ntoo5WsLV3EeUhimwg6vo2rDvHHK+5a/n/pXdM6lVv2jB7F+BkjVmcptZi9oVyC0=; c=relaxed/simple; s=224i4yxa5dv7c2xz3womw6peuasteono; d=amazonses.com; t=1595100043; v=1; bh=ms3mS384aem6RHgRKyZRLH8xYcbojkfMmlf1sL3tV5I=; h=From:To:Cc:Bcc:Subject:Date:Message-ID:MIME-Version:Content-Type:X-SES-RECEIPT;
+Received: by mail-lf1-f66.google.com with SMTP id u12so7782171lff.2
+        for <someone@poo.email>; Sat, 18 Jul 2020 12:20:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:from:date:message-id:subject:to;
+        bh=ms3mS384aem6RHgRKyZRLH8xYcbojkfMmlf1sL3tV5I=;
+        b=RhOI1+O2l7o2DRrUFUcQoR3rrDutxEpySb6LW8dM9s1zBVb9HufP6dZLe2YgCgaOxB
+         RpgPAi+i52HH19tyasPzmH4DA1qaqQ0Jzc5h3ANZdsOtwttheRm3CwQViuydLav5gUB2
+         vLwFKncuwFk3+rpvSyDFW7J+1TrF134MjDqOgHfGRElVY5cxPSQe8eNSZi2j41CxxpCj
+         XzfJa3FzC1ibena/Y7iSF5OWijbVzDK6/XP+GB4wE2kO0P8J2EgML29wxwtrr9q/r5/S
+         uUeECP/HTzKc3aBbopuLPdxpKWgvps6Vj7eKkPOm10zE9xxVhSZ08BrdoKxPdI9Cb4Rr
+         2d3g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:mime-version:from:date:message-id:subject:to;
+        bh=ms3mS384aem6RHgRKyZRLH8xYcbojkfMmlf1sL3tV5I=;
+        b=lBH8yGAj2HP86oUzM2rGPllJIQJBrYzUXQk5+7d19PXtvbKTZN0h8duACekoUf8dqb
+         JQuPlw8OJQ45F7umrDoK/wc8UF155EzXsL3DksI7I+ojEJ+V4sCtgMpshzqM9W7j+7kb
+         FVeD9VxVRMvD3yYHXfdTjllnfkqKLSwdNW8iFyK+QKM/6Ti3HEtfwxZnzZsvMmRwiMx4
+         94SwsjbighRm1M+sR/nXLFXbJkkIVx1nQo2ZeQdCZZbwXincGc7yTyymiRoV/zhTUPLZ
+         y58nCMtMlUeBT1MhIB+jRGdcUjEuDVnZWbPIzYp7RqoXsMifeegoiVZ31u2RgZ2tdorL
+         wQWw==
+X-Gm-Message-State: AOAM530yumyrabvZnl4uctzCVbMei5imGCRg8pViG8+W8kqNfWYLPcMw
+	PfFhzBcykbhMfhRza4pRIQJt4zaIioqgbNEb8Nxk+lwQWxQ=
+X-Google-Smtp-Source: ABdhPJw8mRtBVz1KLbKsnI8f+/Oa/n6ewCVvT9HjoR31cl6xyQoQIPyo5tI528wc7mzNikj+CsCSEFUT/Tzi3dKB1kw=
+X-Received: by 2002:a19:8704:: with SMTP id j4mr4037562lfd.198.1595100040897;
+ Sat, 18 Jul 2020 12:20:40 -0700 (PDT)
+MIME-Version: 1.0
+From: MooYoul Lee <mooyoul@gmail.com>
+Date: Sun, 19 Jul 2020 04:20:29 +0900
+Message-ID: <CAN_HVM0vsVSuPj7cg2H5KmDEPEtV=yodoSXapB_xemfgn3LRqA@mail.gmail.com>
+Subject: Test external links and images
+To: someone@poo.email
+Content-Type: multipart/alternative; boundary="00000000000051aad805aabc2bea"
+
+--00000000000051aad805aabc2bea
+Content-Type: text/plain; charset="UTF-8"
+
+External Link
+- Github (Direct Link): https://github.com/mooyoul/poo.email
+- Github (Shorten Link): https://bit.ly/2CtAY9E
+
+External Image
+
+--00000000000051aad805aabc2bea
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><div>External Link</div><div>- Github (Direct Link):=C2=A0=
+<a href=3D"https://github.com/mooyoul/poo.email">https://github.com/mooyoul=
+/poo.email</a></div><div>- Github (Shorten Link):=C2=A0<a href=3D"https://b=
+it.ly/2CtAY9E">https://bit.ly/2CtAY9E</a></div><div><br></div><div>External=
+ Image</div><div><br></div><div><br></div><div><div><img src=3D"https://med=
+ia.vingle.net/images/ca_xl/mop2hme5is.jpg" width=3D"542" height=3D"452"><br=
+></div></div><div><br></div><div><div><img src=3D"https://bit.ly/3do8jkd" w=
+idth=3D"542" height=3D"293"><br></div></div><div><br></div><div><br></div><=
+/div>
+
+--00000000000051aad805aabc2bea--

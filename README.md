@@ -29,6 +29,7 @@ or Send a mail to [example@poo.email](mailto:example@poo.email), then Navigate t
 - View Inbox
 - View/Download Attachments
 - Real-time updates via WebSockets 
+- Email tracking (Open / Link Click) prevention  
 
 
 ## Project Structure

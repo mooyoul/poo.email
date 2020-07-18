@@ -1,4 +1,5 @@
 import * as sinon from "sinon";
+import { Readable } from "stream";
 import {
   Middleware,
   Namespace,
@@ -26,6 +27,37 @@ export function stubAWSAPI<T>(
         promise: () => Promise.resolve(fake(...args)),
       };
     });
+}
+
+export function readStream(stream: Readable) {
+  return new Promise<Buffer>((resolve, reject) => {
+    const chunks: Buffer[] = [];
+
+    stream
+      .on("error", onError)
+      .on("data", onData)
+      .on("end", onEnd);
+
+    function onData(buf: Buffer) {
+      chunks.push(buf);
+    }
+
+    function onError(e: Error) {
+      stream.removeListener("error", onError);
+      stream.removeListener("data", onData);
+      stream.removeListener("end", onEnd);
+
+      reject(e);
+    }
+
+    function onEnd() {
+      stream.removeListener("error", onError);
+      stream.removeListener("data", onData);
+      stream.removeListener("end", onEnd);
+
+      resolve(Buffer.concat(chunks));
+    }
+  });
 }
 
 export function createResolver(routes: Routes, middlewares?: Middleware[]) {

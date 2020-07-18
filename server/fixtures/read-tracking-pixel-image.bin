@@ -1,0 +1,37 @@
+Return-Path: <debug@kakao.com>
+Received: from kmail-smail-vm36.dakao.io (kmail-smail-vm36.mail.kakao.com [121.53.206.46])
+ by inbound-smtp.us-east-1.amazonaws.com with SMTP id hku2gl4sg99bn2u0ubp62m13uka5ndpn2d4tnp81
+ for someone@poo.email;
+ Sat, 18 Jul 2020 18:58:59 +0000 (UTC)
+X-SES-Spam-Verdict: PASS
+X-SES-Virus-Verdict: PASS
+Received-SPF: pass (spfCheck: domain of kakao.com designates 121.53.206.46 as permitted sender) client-ip=121.53.206.46; envelope-from=debug@kakao.com; helo=kmail-smail-vm36.mail.kakao.com;
+Authentication-Results: amazonses.com;
+ spf=pass (spfCheck: domain of kakao.com designates 121.53.206.46 as permitted sender) client-ip=121.53.206.46; envelope-from=debug@kakao.com; helo=kmail-smail-vm36.mail.kakao.com;
+ dmarc=pass header.from=kakao.com;
+X-SES-RECEIPT: AEFBQUFBQUFBQUFINjJxNmhidit3ZE9DNEtCQm5qVlhnTzI1bEp6anFCbzBDRGJ5RWFlbm5yd3AwODNVRDduY1l1RDVSVm4wZ3pSZWJ0Z2FvOUNvcVMxaXhkanMyNTVRdURjc0xlSVRvY3lSMkIrdWFVZFQrUDdwSVhVcVMweUF4RkxDLzVpeDZqdVpVR0ZYVUhzSEh3WEpaTXhOTUNnSDlCVWJrM0N3SnVyOHFlTU1ITHEyeXNyUVhBV3MwaCtvSjJreXg5NGF5NlR6ZjExVHg5SnRBV1kybUNUMjkwcW5oOXhIdmM5b29oTVhEYldYUjk3dWdWUklyb0FvVEdBZXRXaEF0bDg1bElZcmROLzBZcFlyVlhxYzIvU3JLYmpHb3lRTmQyZFo2VGxVVVVaWUtqbXA4cGc9PQ==
+X-SES-DKIM-SIGNATURE: a=rsa-sha256; q=dns/txt; b=fmmYoxn+66Vtx2ry8FqQr6wJl+BwetGzYAlfXwnrU72wot1TI5A0QvoP8Z+E6F9DxsmTGKbhcP7A7kMD9vmoi9EJHxze9hKieIXFiWnQB7nwWEEd0E1f1x0rnCv3TgWkIGysacGo1zgN++9ZxJms4vOoERHMfBqoszmAbbzUsvc=; c=relaxed/simple; s=224i4yxa5dv7c2xz3womw6peuasteono; d=amazonses.com; t=1595098741; v=1; bh=xdExBk0lFWNMcIjMtxhSkmSN4UWQOGey1WHjKYL9ZjQ=; h=From:To:Cc:Bcc:Subject:Date:Message-ID:MIME-Version:Content-Type:X-SES-RECEIPT;
+X-Hermes-Message-Id: o6J3wsnH51231737644
+X-Hermes-Message-Id: o6J3wrAe71684328129
+Date: Sun, 19 Jul 2020 03:58:53 +0900 (KST)
+From: debug <debug@kakao.com>
+To: someone@poo.email
+Message-ID: <20200719035853.-ztVoEEkSBa34a7ZhNOM4w@debug.kakao.com>
+Subject: Will you read my mail?
+Errors-To: <debug@kakao.com>
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: base64
+X-Kakaomail-MID: CvsAAgAAAAkAAAFzY0sZ9gAAiKg=
+X-Mailer: Daum Mint Web 1.0
+X-Originating-IP: [14.52.151.97]
+X-HM-UT: +8Cc0M/7LX+pwRF2Rq2CQYKI46mUvstZ
+Received: from kmail-hmail-web3 ([10.194.42.222]) by hermes of kmail-smail-vm36 (121.53.206.46) with SMTP id o6J3wsnH51231737644 for <someone@poo.email>; Sun, 19 Jul 2020 03:58:54 +0900 (KST)
+Received: from 84636d6bcd54 ([10.194.45.185]) by hermes of kmail-hmail-web3 (10.194.42.222) with ESMTP id o6J3wrAe71684328129 for <someone@poo.email>; Sun, 19 Jul 2020 03:58:53 +0900 (KST)
+
+PGh0bWw+CjxoZWFkPgogICAgPHN0eWxlPgogICAgICAgIHB7bWFyZ2luLXRvcDowO21hcmdpbi1i
+b3R0b206MH0KICAgIDwvc3R5bGU+CjwvaGVhZD4KPGJvZHk+CiAgICBIdWg/CjwvYm9keT4KPC9o
+dG1sPgo8aW1nIHNyYz0iaHR0cHM6Ly9jb25maXJtLm1haWwua2FrYW8uY29tL3YxL3VzZXJzL2Rl
+YnVnJTQwa2FrYW8lMkVjb20vY21haWxzLzIwMjAwNzE5MDM1ODUzJTJFLXp0Vm9FRWtTQmEzNGE3
+WmhOT000dyU0MGRlYnVnJTJFa2FrYW8lMkVjb20vcmVjaXBpZW50cy9zb21lb25lJTQwcG9vJTJF
+ZW1haWwiPg==
