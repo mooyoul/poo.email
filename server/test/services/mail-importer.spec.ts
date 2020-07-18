@@ -18,7 +18,6 @@ describe(MailImporter.name, () => {
     afterEach(() => {
       nock.enableNetConnect();
       nock.cleanAll();
-      nock.restore();
     });
 
     describe("basic", () => {
