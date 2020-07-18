@@ -261,7 +261,8 @@ export class MailImporter {
         $el.attr("href", resolved);
       }
 
-      const $originalLinkEl = $("<a>[Original Link]</a>");
+      const $addonEl = $(" <a>[Original Link]</a>");
+      const $originalLinkEl = $addonEl.filter("a");
       $originalLinkEl.attr("href", original!);
 
       for (const $selector of [$el, $originalLinkEl]) {
@@ -271,7 +272,7 @@ export class MailImporter {
       }
 
       if (original !== resolved) {
-        $el.after($originalLinkEl);
+        $el.after($addonEl);
       }
     });
     $images.each((_, el) => {
