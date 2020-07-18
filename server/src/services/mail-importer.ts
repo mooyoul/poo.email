@@ -174,35 +174,41 @@ export class MailImporter {
 
         const fetched = await BbPromise.map(
           uniqueUrls,
-          (url) => new Promise<[string, string]>((resolve) => {
-            const req = got.stream(url, { timeout: 10000 })
-              .on("error", onError)
-              .on("response", onResponse);
+          async (url): Promise<[string, string]> => {
+            try {
+              return await new Promise<[string, string]>((resolve, reject) => {
+                const req = got.stream(url, { timeout: 10000 })
+                  .on("error", onError)
+                  .on("response", onResponse);
 
-            function onResponse(res: GotResponse) {
-              req.removeListener("error", onError);
-              req.removeListener("response", onResponse);
+                function onResponse(res: GotResponse) {
+                  req.removeListener("error", onError);
+                  req.removeListener("response", onResponse);
 
-              const resolvedUrl = res.url;
+                  const resolvedUrl = res.url;
 
-              // abort response to stop downloading rest response body
-              req.destroy();
-              res.destroy();
+                  // abort response to stop downloading rest response body
+                  req.destroy();
+                  res.destroy();
 
-              resolve([url, resolvedUrl]);
-            }
+                  resolve([ url, resolvedUrl ]);
+                }
 
-            function onError(e: Error) {
-              req.removeListener("error", onError);
-              req.removeListener("response", onResponse);
+                function onError(e: Error) {
+                  req.removeListener("error", onError);
+                  req.removeListener("response", onResponse);
 
-              req.destroy();
+                  req.destroy();
 
+                  reject(e);
+                }
+              });
+            } catch (e) {
               console.error(e.stack); // tslint:disable-line
 
-              resolve([url, url]);
+              return [url, url];
             }
-          }),
+          },
           { concurrency: 16 },
         );
 
