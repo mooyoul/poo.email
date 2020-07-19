@@ -330,7 +330,7 @@ describe(MailImporter.name, () => {
         }]);
         expect(writeFake.getCall(4).args).toEqual([{
           key: "destination/message.html",
-          body: (await fs.readFile("fixtures/complex.html")).slice(-1), // strip newline at the end
+          body: (await fs.readFile("fixtures/complex.html")).slice(0, -1), // strip newline at the end
           metadata: {
             contentType: "text/html; charset=utf-8",
             acl: "public-read",
